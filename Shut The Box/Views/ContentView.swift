@@ -32,17 +32,17 @@ struct ContentView: View {
                     }
                 }
             }
-//            HStack {
-//                if let roll = (stateManager.roll) {
-//                    Text("Die 1: \(roll.firstDie)")
-//                    Text("Die 2: \(roll.secondDie)")
-//                } else {
-//                    CTAButton("Roll!") {
-//                        stateManager.rollDice()
-//                    }
-//                }
-//            }
-//            .padding(.top, 16)
+            HStack {
+                if let roll = (stateManager.roll) {
+                    Text("Die 1: \(roll.firstDie)")
+                    Text("Die 2: \(roll.secondDie)")
+                } else {
+                    CTAButton("Roll!") {
+                        stateManager.rollDice()
+                    }
+                }
+            }
+            .padding(.top, 16)
         }
     }
 }
