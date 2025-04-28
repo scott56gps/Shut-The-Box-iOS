@@ -14,7 +14,7 @@ import SwiftUI
     }
     
     func rollDice() {
-        roll = Roll((3, 4))
+        roll = Roll((Int.random(in: 1...6), Int.random(in: 1...6)))
     }
     
     func reset() {
