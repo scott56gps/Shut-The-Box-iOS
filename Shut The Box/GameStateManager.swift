@@ -9,7 +9,11 @@ import SwiftUI
 @Observable class GameStateManager {
     var roll: Roll?
     
+    init(roll: Roll? = nil) {
+        self.roll = roll
+    }
+    
     func rollDice() {
-        roll = Roll(firstDie: 3, secondDie: 4)
+        roll = Roll((3, 4))
     }
 }

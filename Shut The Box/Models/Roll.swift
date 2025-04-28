@@ -12,9 +12,9 @@ struct Roll {
     let secondDie: Int
     let total: Int
     
-    init(firstDie: Int, secondDie: Int) {
-        self.firstDie = firstDie
-        self.secondDie = secondDie
+    init(_ dice:(Int, Int)) {
+        self.firstDie = dice.0
+        self.secondDie = dice.1
         self.total = firstDie + secondDie
     }
 }
