@@ -16,6 +16,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            Spacer()
             HStack {
                 ForEach(numbers, id: \.self) { number in
                     Peg(number: String(number),
@@ -32,17 +33,26 @@ struct ContentView: View {
                     }
                 }
             }
+            Spacer()
             HStack {
                 if let roll = (stateManager.roll) {
                     Text("Die 1: \(roll.firstDie)")
+                        .font(.title)
                     Text("Die 2: \(roll.secondDie)")
+                        .font(.title)
                 } else {
                     CTAButton("Roll!") {
                         stateManager.rollDice()
                     }
                 }
             }
-            .padding(.top, 16)
+//                        .padding(.top, 16)
+            Button() {
+                stateManager.reset()
+            } label: {
+                Text("Reset")
+                    .font(.title)
+            }
         }
     }
 }

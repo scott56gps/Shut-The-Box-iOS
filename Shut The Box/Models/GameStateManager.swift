@@ -16,4 +16,8 @@ import SwiftUI
     func rollDice() {
         roll = Roll((3, 4))
     }
+    
+    func reset() {
+        roll = nil
+    }
 }
