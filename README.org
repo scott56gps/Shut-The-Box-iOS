@@ -1,0 +1,8 @@
+* Shut The Box
+This iOS app allows a user to play the game Shut The Box.  Shut The Box is a
+game consisting of 9 wooden pegs standing up in a box.  Each round, the player
+rolls 2 dice and has the option of putting down any pegs that sum up to the
+roll's total.  If a player rolls a sum that cannot be constructed from any
+available pegs, the game is over and the player's score is the sum of the
+remaining pegs.  The lowest score wins.  If the player can put down all the
+pegs, that player has *Shut The Box!*

@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D2EAF4732DC039FD006AD39A /* README.org in Resources */ = {isa = PBXBuildFile; fileRef = D2EAF4722DC039FD006AD39A /* README.org */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D2A167032DBAF91400D0C96A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		D2A166F52DBAF90600D0C96A /* Shut The Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shut The Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A167022DBAF91400D0C96A /* Shut The BoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shut The BoxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A1670C2DBAF91400D0C96A /* Shut The BoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shut The BoxUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2EAF4722DC039FD006AD39A /* README.org */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.org; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		D2A166EC2DBAF90500D0C96A = {
 			isa = PBXGroup;
 			children = (
+				D2EAF4722DC039FD006AD39A /* README.org */,
 				D2A166F72DBAF90600D0C96A /* Shut The Box */,
 				D2A167052DBAF91400D0C96A /* Shut The BoxTests */,
 				D2A1670F2DBAF91400D0C96A /* Shut The BoxUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2EAF4732DC039FD006AD39A /* README.org in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
