@@ -35,24 +35,17 @@ struct ContentView: View {
             }
             Spacer()
             HStack {
-                if let roll = (stateManager.roll) {
-                    Text("Die 1: \(roll.firstDie)")
+                Button() {
+                    stateManager.reset()
+                } label: {
+                    Text("Reset")
                         .font(.title)
-                    Text("Die 2: \(roll.secondDie)")
-                        .font(.title)
-                } else {
-                    CTAButton("Roll!") {
-                        stateManager.rollDice()
-                    }
                 }
+                Spacer()
+                RollView(stateManager: $stateManager)
+                Spacer()
             }
-//                        .padding(.top, 16)
-            Button() {
-                stateManager.reset()
-            } label: {
-                Text("Reset")
-                    .font(.title)
-            }
+            
         }
     }
 }
