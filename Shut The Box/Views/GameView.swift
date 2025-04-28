@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct GameView: View {
     @State private var scaledElementIndex: Int?
     @State private var stateManager = GameStateManager()
     let scaleAmount = 1.5
@@ -17,7 +17,7 @@ struct ContentView: View {
             Spacer()
             HStack {
                 ForEach(stateManager.numbers, id: \.self) { number in
-                    Peg(number: String(number),
+                    PegView(number: String(number),
                         scale: scaledElementIndex != nil &&
                         scaledElementIndex! == number ? scaleAmount : 1.0,
                         isLeadingEnd: number == stateManager.numbers[0],
@@ -49,5 +49,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    GameView()
 }

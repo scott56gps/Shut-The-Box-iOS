@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct Peg: View {
+struct PegView: View {
     let number: String
     let scale: Double
     let isLeadingEnd: Bool
@@ -32,5 +32,5 @@ struct Peg: View {
 }
 
 #Preview {
-    Peg(number: "1", scale: 1.0, isLeadingEnd: true, isTrailingEnd: false)
+    PegView(number: "1", scale: 1.0, isLeadingEnd: true, isTrailingEnd: false)
 }
