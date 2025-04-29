@@ -14,12 +14,12 @@ struct PegsView: View {
 
     var body: some View {
         HStack {
-            ForEach(stateManager.numbers, id: \.self) { number in
+            ForEach(stateManager.availableNumbers, id: \.self) { number in
                 PegView(number: String(number),
                         scale: scaledElementIndex != nil &&
                         scaledElementIndex! == number ? scaleAmount : 1.0,
-                        isLeadingEnd: number == stateManager.numbers[0],
-                        isTrailingEnd: stateManager.numbers.last == number,
+                        isLeadingEnd: number == stateManager.availableNumbers[0],
+                        isTrailingEnd: stateManager.availableNumbers.last == number,
                 )
                 .frame(height: 85)
                 .onLongPressGesture(minimumDuration: 0.0) {

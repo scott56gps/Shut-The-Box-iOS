@@ -7,8 +7,12 @@
 import SwiftUI
 
 @Observable class GameStateManager {
-    var numbers = [1,2,3,4,5,6,7,8,9]
+    var availableNumbers = [1,2,3,4,5,6,7,8,9]
     var roll: Roll?
+    
+    init(numbers: [Int]) {
+        self.availableNumbers = numbers
+    }
     
     init(roll: Roll? = nil) {
         self.roll = roll
