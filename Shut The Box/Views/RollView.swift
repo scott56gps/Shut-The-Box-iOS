@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RollView: View {
-    @Binding var stateManager: GameStateManager
+    @Bindable var stateManager: GameStateManager
     
     var body: some View {
         HStack {
@@ -36,11 +36,11 @@ struct RollView: View {
 }
 
 #Preview {
-    @Previewable @State var stateManager = GameStateManager(roll: Roll((3, 4)))
-    RollView(stateManager: $stateManager)
+    @Previewable @Bindable var stateManager = GameStateManager(roll: Roll((3, 4)))
+    RollView(stateManager: stateManager)
 }
 
 #Preview {
-    @Previewable @State var stateManager = GameStateManager()
-    RollView(stateManager: $stateManager)
+    @Previewable @Bindable var stateManager = GameStateManager()
+    RollView(stateManager: stateManager)
 }

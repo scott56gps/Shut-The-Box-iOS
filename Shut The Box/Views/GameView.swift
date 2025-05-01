@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct GameView: View {
-    @State private var stateManager = GameStateManager()
+    @Bindable private var stateManager = GameStateManager()
     
     var body: some View {
         VStack {
             Spacer()
-            PegsView(stateManager: $stateManager)
+            PegsView(stateManager: stateManager)
             Spacer()
             HStack {
                 Button() {
@@ -23,7 +23,7 @@ struct GameView: View {
                         .font(.title)
                 }
                 Spacer()
-                RollView(stateManager: $stateManager)
+                RollView(stateManager: stateManager)
                 Spacer()
             }
         }

@@ -9,23 +9,27 @@ import SwiftUI
 
 struct PegsView: View {
     @State private var scaledElementIndex: Int?
-    @Binding var stateManager: GameStateManager
+    @Bindable var stateManager: GameStateManager
     let scaleAmount = 1.5
 
     var body: some View {
         HStack {
-            ForEach(stateManager.availableNumbers, id: \.self) { number in
-                PegView(number: String(number),
+            ForEach($stateManager.availablePegs, id: \.self.number) { $peg in
+                PegView(peg: $peg,
                         scale: scaledElementIndex != nil &&
-                        scaledElementIndex! == number ? scaleAmount : 1.0,
-                        isLeadingEnd: number == stateManager.availableNumbers[0],
-                        isTrailingEnd: stateManager.availableNumbers.last == number,
+                        scaledElementIndex! == peg.number ? scaleAmount : 1.0,
+                        isLeadingEnd: peg.number == stateManager.availablePegs[0].number,
+                        isTrailingEnd: stateManager.availablePegs.last?.number == peg.number,
                 )
                 .frame(height: 85)
                 .onLongPressGesture(minimumDuration: 0.0) {
-                    scaledElementIndex = number
+                    scaledElementIndex = peg.number
                 } onPressingChanged: { inProgress in
                     scaledElementIndex = inProgress ? scaledElementIndex : nil
+                    
+                    if(!inProgress) {
+                        
+                    }
                 }
             }
         }
@@ -33,6 +37,6 @@ struct PegsView: View {
 }
 
 #Preview {
-    @Previewable @State var stateManager = GameStateManager()
-    PegsView(stateManager: $stateManager)
+    @Previewable @Bindable var stateManager = GameStateManager()
+    PegsView(stateManager: stateManager)
 }

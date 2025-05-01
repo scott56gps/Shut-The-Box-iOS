@@ -14,14 +14,19 @@ extension GameStateManager {
      A single pair containing a 0 as its first part indicates that the sum itself is included.
      */
     func getAvailablePairs(sum: Int) -> [(Int, Int)] {
+        let availableNumbers = availablePegs.map { $0.number }
         var result: [(Int, Int)] = []
         if sum <= 9 && availableNumbers.contains(sum) {
             result.append((0, sum))
         }
-        return sum == 2 ? result : findPairs(sum: sum, result: result)
+        return sum == 2 ? result : findPairs(
+            sum: sum,
+            result: result,
+            availableNumbers: availableNumbers
+        )
     }
     
-    private func findPairs(sum: Int, result: [(Int, Int)]) -> [(Int, Int)] {
+    private func findPairs(sum: Int, result: [(Int, Int)], availableNumbers: [Int]) -> [(Int,Int)] {
         let maxModulus = min(sum-1, 9)
         let midpoint = sum / 2
 

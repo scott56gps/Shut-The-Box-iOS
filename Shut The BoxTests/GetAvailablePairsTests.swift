@@ -9,7 +9,6 @@ import Testing
 @testable import Shut_The_Box
 
 @Suite("Get Available Pairs Tests") struct GetAvailablePairsTests {
-
     @Test("2 Only Returns (0, 2)") func Sum2_2() {
         let manager = GameStateManager()
         #expect(
