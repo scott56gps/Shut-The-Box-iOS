@@ -12,6 +12,7 @@ class GameStateManager {
     var availableNumbers: [Int] = Array(1...9)
     var roll: Roll?
     var pegMatches: Set<Peg>?
+    var isGameOverAndBoxShut: (Bool, Bool) = (false, false)
     
     init(numbers: [Int]) {
         self.availableNumbers = numbers
@@ -30,6 +31,12 @@ class GameStateManager {
         )
 
         let availablePairs = getAvailablePairs(sum: roll.total)
+        // Set Game Over if there are no available moves left
+        if availablePairs.isEmpty {
+            isGameOverAndBoxShut = (true, false)
+            return
+        }
+        
         let masterColors = [Color.red, Color.blue, Color.green, Color.yellow, Color.orange, Color.purple, Color.pink]
         let colors = masterColors[0...availablePairs.count-1]
         
@@ -50,19 +57,22 @@ class GameStateManager {
      SIDE EFFECT:
      Modifies availablePegs to not contain the given peg and its match that together add to the current roll total.
      */
-    func removePeg(_ selectedPeg: Peg) {
-        if let roll = roll {
-            let predicate: (Int) -> Bool = selectedPeg.number == roll.total ?
-            { $0 == selectedPeg.number } :
-            { $0 == selectedPeg.number || $0 == roll.total - selectedPeg.number }
+    func removeMatch(_ matchedPegNumbers: (Int, Int)) {
+        self.availableNumbers
+            .removeAll(where: { $0 == matchedPegNumbers.0 || $0 == matchedPegNumbers.1 })
+        self.pegMatches = nil
+        self.roll = nil
             
-            self.availableNumbers.removeAll(where: predicate)
+        // Check to see if the box was shut
+        if self.availableNumbers.isEmpty {
+            isGameOverAndBoxShut = (true, true)
         }
     }
         
     func reset() {
         self.availableNumbers = Array(1...9)
-        self.roll = nil
         self.pegMatches = nil
+        self.roll = nil
+        self.isGameOverAndBoxShut = (false, false)
     }
 }

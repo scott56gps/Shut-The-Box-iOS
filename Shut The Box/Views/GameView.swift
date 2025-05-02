@@ -11,21 +11,25 @@ struct GameView: View {
     @State private var stateManager = GameStateManager()
     
     var body: some View {
-        VStack {
-            Spacer()
-            PegsView(stateManager: stateManager)
-            Spacer()
-            HStack {
-                Button() {
-                    stateManager.reset()
-                } label: {
-                    Text("Reset")
-                        .font(.title)
+        if stateManager.isGameOverAndBoxShut.0 {
+            GameOverView(stateManager: stateManager)
+        } else {
+            VStack {
+                Spacer()
+                PegsView(stateManager: stateManager)
+                Spacer()
+                HStack {
+                    Button() {
+                        stateManager.reset()
+                    } label: {
+                        Text("Reset")
+                            .font(.title)
+                    }
+                    Spacer()
+                    RollView(stateManager: stateManager)
+                    Spacer()
                 }
-                Spacer()
-                RollView(stateManager: stateManager)
-                Spacer()
-            }
+            }    
         }
     }
 }

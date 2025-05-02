@@ -43,8 +43,13 @@ struct PegsView: View {
                 }
             }
         } onPressingChanged: { inProgress in
-            touchedNumber = inProgress ? touchedNumber : nil
-            matchedNumber = inProgress ? matchedNumber : nil
+            if let roll = stateManager.roll, let touchedNumber = touchedNumber {
+                guard !inProgress else { return }
+                stateManager.removeMatch((touchedNumber, matchedNumber ?? roll.total - touchedNumber))
+            }
+            
+            self.touchedNumber = inProgress ? touchedNumber : nil
+            self.matchedNumber = inProgress ? matchedNumber : nil
         }
     }
     
