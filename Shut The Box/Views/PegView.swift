@@ -7,13 +7,13 @@
 import SwiftUI
 
 struct PegView: View {
-    let number: String
+    var peg: Peg
     let scale: Double
     let isLeadingEnd: Bool
     let isTrailingEnd: Bool
     
     var body: some View {
-        Text(number)
+        Text(String(peg.number))
             .font(.largeTitle)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(
@@ -24,7 +24,7 @@ struct PegView: View {
                         topTrailingRadius: isTrailingEnd ? 20 : 0
                 )
                     .stroke(Color.black, lineWidth: 2)
-                    .fill(Color.blue)
+                    .fill(peg.color)
                     .aspectRatio(1.0, contentMode: .fill)
             )
             .scaleEffect(scale)
@@ -32,5 +32,5 @@ struct PegView: View {
 }
 
 #Preview {
-    PegView(number: "1", scale: 1.0, isLeadingEnd: true, isTrailingEnd: false)
+    PegView(peg: Peg(1), scale: 1.0, isLeadingEnd: true, isTrailingEnd: false)
 }

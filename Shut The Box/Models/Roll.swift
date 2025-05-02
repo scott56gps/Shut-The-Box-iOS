@@ -15,6 +15,6 @@ struct Roll {
     init(_ dice:(Int, Int)) {
         self.firstDie = dice.0
         self.secondDie = dice.1
-        self.total = firstDie + secondDie
+        self.total = self.firstDie + self.secondDie
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "GameStateManager.findPairs(sum:result:availableNumbers:):GameStateAlgorithms.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "midpoint.isMultiple(of: 2)">
+            </PersistentString>
+            <PersistentString
+               value = "(2...maxModulus).reversed()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in GameStateManager.findPairs(sum:result:availableNumbers:):GameStateAlgorithms.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sum % j">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameStateManager.rollDice():GameStateManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "colors.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
