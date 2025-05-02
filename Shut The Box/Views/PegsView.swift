@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct PegsView: View {
-    @State private var touchedNumber: Int?
-    @State private var matchedNumber: Int?
+    @State private var touchedPegNumber: Int?
+    @State private var matchedPegNumber: Int?
     var stateManager: GameStateManager
     let scaleAmount = 1.5
 
@@ -28,28 +28,29 @@ struct PegsView: View {
     func createMatchedPegView(peg: Peg) -> some View {
         PegView(
             peg: peg,
-            scale: touchedNumber == peg.number || matchedNumber == peg.number ? scaleAmount : 1.0,
+            scale: touchedPegNumber == peg.number || matchedPegNumber == peg.number ? scaleAmount : 1.0,
             isLeadingEnd: stateManager.availableNumbers[0] == peg.number,
             isTrailingEnd:
                 stateManager.availableNumbers[stateManager.availableNumbers.count - 1] == peg.number
             )
         .frame(height: 85)
         .onLongPressGesture(minimumDuration: 0.0) {
-            touchedNumber = peg.number
+            touchedPegNumber = peg.number
             // Try to locate a match
             if let total = stateManager.roll?.total {
-                if let matchedPeg = stateManager.pegMatches?.first(where: { matchingPeg in abs(total - peg.number) == matchingPeg.number}) {
-                    matchedNumber = matchedPeg.number
+                let matchDifference = total - peg.number
+                if let matchedPeg = stateManager.pegMatches?.first(where: { matchDifference == $0.number}) {
+                    matchedPegNumber = matchedPeg.number
                 }
             }
         } onPressingChanged: { inProgress in
-            if let roll = stateManager.roll, let touchedNumber = touchedNumber {
+            if let roll = stateManager.roll, let touchedNumber = touchedPegNumber {
                 guard !inProgress else { return }
-                stateManager.removeMatch((touchedNumber, matchedNumber ?? roll.total - touchedNumber))
+                stateManager.removeMatch((touchedNumber, matchedPegNumber ?? roll.total - touchedNumber))
             }
             
-            self.touchedNumber = inProgress ? touchedNumber : nil
-            self.matchedNumber = inProgress ? matchedNumber : nil
+            self.touchedPegNumber = inProgress ? touchedPegNumber : nil
+            self.matchedPegNumber = inProgress ? matchedPegNumber : nil
         }
     }
     

@@ -13,7 +13,7 @@ class GameStateManager {
     var roll: Roll?
     var pegMatches: Set<Peg>?
     var isGameOverAndBoxShut: (Bool, Bool) = (false, false)
-    
+    let masterColors = [Color.red, Color.blue, Color.green, Color.yellow, Color.orange, Color.purple, Color.pink, Color.mint, Color.indigo, Color.teal]
     init(numbers: [Int]) {
         self.availableNumbers = numbers
     }
@@ -37,8 +37,7 @@ class GameStateManager {
             return
         }
         
-        let masterColors = [Color.red, Color.blue, Color.green, Color.yellow, Color.orange, Color.purple, Color.pink]
-        let colors = masterColors[0...availablePairs.count-1]
+        let colors = masterColors.shuffled()[0...availablePairs.count-1]
         
         // Convert the availablePairs to peg matches
         self.pegMatches = zip(availablePairs, colors).reduce(into: Set([])) { acc, matchAndColorPair in
