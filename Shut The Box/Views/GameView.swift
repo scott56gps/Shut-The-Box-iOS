@@ -16,6 +16,7 @@ struct GameView: View {
         } else {
             VStack {
                 Spacer()
+                Text("Score: \(stateManager.availableNumbers.reduce(0, +))")
                 PegsView(stateManager: stateManager)
                 Spacer()
                 HStack {
