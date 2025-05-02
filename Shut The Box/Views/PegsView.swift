@@ -66,6 +66,6 @@ struct PegsView: View {
 }
 
 #Preview {
-    @Previewable @Bindable var stateManager = GameStateManager()
+    @Previewable var stateManager = GameStateManager()
     PegsView(stateManager: stateManager)
 }

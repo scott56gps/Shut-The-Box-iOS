@@ -31,6 +31,6 @@ struct PegView: View {
     }
 }
 
-//#Preview {
-//    PegView(peg: Peg(1), scale: 1.0, isLeadingEnd: true, isTrailingEnd: false)
-//}
+#Preview {
+    PegView(peg: Peg(1), scale: 1.0, isLeadingEnd: true, isTrailingEnd: false)
+}
