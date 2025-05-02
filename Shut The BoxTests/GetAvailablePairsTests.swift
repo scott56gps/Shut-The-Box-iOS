@@ -9,6 +9,52 @@ import Testing
 @testable import Shut_The_Box
 
 @Suite("Get Available Pairs Tests") struct GetAvailablePairsTests {
+    @Test("9 With [1,2,3,4,5,6,7,8,9] Returns (0,9), (1,8), (2,7), (3,6), (4,5)")
+    func Sum9() {
+        let manager = GameStateManager()
+        #expect(manager.getAvailablePairs(sum: 9).allSatisfy(
+            { (
+                first,
+                second
+            ) in
+                switch (first, second) {
+                case (0, 9): true
+                case (1, 8): true
+                case (2, 7): true
+                case (3, 6): true
+                case (4, 5): true
+                default: false
+                }
+            }))
+    }
+    
+    @Test("5 With [1,2,3,4,5,6,7,8,9] Returns (0,5), (1,4), (2,3)") func Sum5() {
+        let manager = GameStateManager()
+        #expect(manager.getAvailablePairs(sum: 5).allSatisfy(
+            { (
+                first,
+                second
+            ) in
+                switch (first, second) {
+                case (0, 5): true
+                case (1, 4): true
+                case (2, 3): true
+                default: false
+                }
+            }))
+    }
+    
+    @Test("3 With [1,2,3,4,5,6,7,8,9] Returns (0,3), (1,2)") func Sum3() {
+        let manager = GameStateManager()
+        #expect(manager.getAvailablePairs(sum: 3).allSatisfy { pair in
+            switch pair {
+            case (0, 3): return true
+            case (1, 2): return true
+            default: return false
+            }
+        })
+    }
+    
     @Test("2 Only Returns (0, 2)") func Sum2_2() {
         let manager = GameStateManager()
         #expect(
@@ -74,9 +120,15 @@ import Testing
     
     @Test("8 With [1,5,7,9] Returns (1, 7)") func Sum8_WithArray_Only1_7() {
         let manager = GameStateManager(numbers: [1,5,7,9])
-        #expect(manager.getAvailablePairs(sum: 8).contains(where: { (first, second) in
-            first == 1 && second == 7
-        }))
+        #expect(
+            manager.getAvailablePairs(sum: 8).contains(
+                where: { (
+                    first,
+                    second
+                ) in
+                    first == 1 && second == 7
+                })
+        )
     }
 
     

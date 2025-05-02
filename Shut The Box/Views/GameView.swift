@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GameView: View {
-    @Bindable private var stateManager = GameStateManager()
+    @State private var stateManager = GameStateManager()
     
     var body: some View {
         VStack {

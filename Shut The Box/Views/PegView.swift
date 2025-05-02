@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct PegView: View {
-    @Binding var peg: Peg
+    var peg: Peg
     let scale: Double
     let isLeadingEnd: Bool
     let isTrailingEnd: Bool

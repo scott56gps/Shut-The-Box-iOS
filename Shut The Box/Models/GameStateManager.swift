@@ -5,18 +5,22 @@
 //  Created by Scott Nicholes on 4/28/25.
 //
 import SwiftUI
+import Observation
 
-@Observable class GameStateManager {
-    var availablePegs: [Peg] = (1...9).reduce([]) { acc, number in
-        acc + [Peg(number)]
-    }
+@Observable
+class GameStateManager {
+    var availableNumbers: [Int] = Array(1...9)
     var roll: Roll?
+    var pegMatches: Set<Peg>?
     
     init(numbers: [Int]) {
-        self.availablePegs = numbers.map(Peg.init)
+        self.availableNumbers = numbers
     }
-    
     init(roll: Roll? = nil) {
+        self.roll = roll
+    }
+    init(numbers: [Int], roll: Roll? = nil) {
+        self.availableNumbers = numbers
         self.roll = roll
     }
     
@@ -26,33 +30,39 @@ import SwiftUI
         )
 
         let availablePairs = getAvailablePairs(sum: roll.total)
-        var colors = [
-            Color.red,
-            Color.green,
-            Color.blue,
-            Color.yellow,
-            Color.orange,
-            Color.purple
-        ]
-
-        // Convert the availablePairs to pegs
-        availablePairs.forEach { pair in
-            let color = colors.popLast() ?? Color.blue
-            if pair.0 == 0 {
-                self.availablePegs[pair.1 - 1] = Peg(pair.1, color: color)
+        let masterColors = [Color.red, Color.blue, Color.green, Color.yellow, Color.orange, Color.purple, Color.pink]
+        let colors = masterColors[0...availablePairs.count-1]
+        
+        // Convert the availablePairs to peg matches
+        self.pegMatches = zip(availablePairs, colors).reduce(into: Set([])) { acc, matchAndColorPair in
+            if matchAndColorPair.0.0 == 0 {
+                acc.insert(Peg(matchAndColorPair.0.1, color: matchAndColorPair.1))
             } else {
-                self.availablePegs[pair.0 - 1] = Peg(pair.0, color: color)
-                self.availablePegs[pair.1 - 1] = Peg(pair.1, color: color)
+                acc.insert(Peg(matchAndColorPair.0.0, color: matchAndColorPair.1))
+                acc.insert(Peg(matchAndColorPair.0.1, color: matchAndColorPair.1))
             }
         }
-        
         self.roll = roll
+    }
+    
+    /**
+     Removes the given peg and its corresponding match, if any, from the state's availablePegs.
+     SIDE EFFECT:
+     Modifies availablePegs to not contain the given peg and its match that together add to the current roll total.
+     */
+    func removePeg(_ selectedPeg: Peg) {
+        if let roll = roll {
+            let predicate: (Int) -> Bool = selectedPeg.number == roll.total ?
+            { $0 == selectedPeg.number } :
+            { $0 == selectedPeg.number || $0 == roll.total - selectedPeg.number }
+            
+            self.availableNumbers.removeAll(where: predicate)
+        }
     }
         
     func reset() {
-        self.availablePegs = (1...9).reduce([]) { acc, number in
-            acc + [Peg(number)]
-        }
+        self.availableNumbers = Array(1...9)
         self.roll = nil
+        self.pegMatches = nil
     }
 }

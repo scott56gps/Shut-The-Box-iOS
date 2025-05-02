@@ -6,7 +6,7 @@
 //
 import SwiftUICore
 
-struct Peg: Equatable {
+struct Peg: Equatable, Hashable {
     var number: Int
     var color: Color = Color.white
     
