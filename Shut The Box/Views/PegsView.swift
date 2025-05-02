@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct PegsView: View {
-//    @State private var scaledElementIndex: Int?
+    @State private var touchedNumber: Int?
+    @State private var matchedNumber: Int?
     var stateManager: GameStateManager
     let scaleAmount = 1.5
 
     var body: some View {
         HStack {
             ForEach(stateManager.availableNumbers, id: \.self) { number in
-//                createUnmatchedPegView(number: number)
                 if let peg = ((stateManager.pegMatches?.first(where: { $0.number == number }))) {
                     createMatchedPegView(peg: peg)
                 } else {
@@ -28,18 +28,24 @@ struct PegsView: View {
     func createMatchedPegView(peg: Peg) -> some View {
         PegView(
             peg: peg,
-//            scale: scaledElementIndex == peg.number ? scaleAmount : 1.0,
-            scale: 1.0,
+            scale: touchedNumber == peg.number || matchedNumber == peg.number ? scaleAmount : 1.0,
             isLeadingEnd: stateManager.availableNumbers[0] == peg.number,
             isTrailingEnd:
                 stateManager.availableNumbers[stateManager.availableNumbers.count - 1] == peg.number
             )
         .frame(height: 85)
-//        .onLongPressGesture(minimumDuration: 0.0) {
-//            scaledElementIndex = peg.number
-//        } onPressingChanged: { inProgress in
-//            scaledElementIndex = inProgress ? scaledElementIndex : nil
-//        }
+        .onLongPressGesture(minimumDuration: 0.0) {
+            touchedNumber = peg.number
+            // Try to locate a match
+            if let total = stateManager.roll?.total {
+                if let matchedPeg = stateManager.pegMatches?.first(where: { matchingPeg in abs(total - peg.number) == matchingPeg.number}) {
+                    matchedNumber = matchedPeg.number
+                }
+            }
+        } onPressingChanged: { inProgress in
+            touchedNumber = inProgress ? touchedNumber : nil
+            matchedNumber = inProgress ? matchedNumber : nil
+        }
     }
     
     func createUnmatchedPegView(number: Int) -> some View {
