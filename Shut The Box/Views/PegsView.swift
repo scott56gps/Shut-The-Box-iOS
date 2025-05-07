@@ -14,7 +14,7 @@ struct PegsView: View {
     let scaleAmount = 1.5
 
     var body: some View {
-        HStack {
+        HStack(spacing: 0) {
             ForEach(stateManager.availableNumbers, id: \.self) { number in
                 if let peg = ((stateManager.pegMatches?.first(where: { $0.number == number }))) {
                     createMatchedPegView(peg: peg)
@@ -22,7 +22,10 @@ struct PegsView: View {
                     createUnmatchedPegView(number: number)
                 }
             }
+            .scaledToFill()
+            .frame(height: 100, alignment: .center)
         }
+        .scaledToFill()
     }
     
     func createMatchedPegView(peg: Peg) -> some View {
@@ -33,7 +36,8 @@ struct PegsView: View {
             isTrailingEnd:
                 stateManager.availableNumbers[stateManager.availableNumbers.count - 1] == peg.number
             )
-        .frame(height: 85)
+        .frame(width: 85, height: 95)
+        .scaledToFill()
         .onLongPressGesture(minimumDuration: 0.0) {
             touchedPegNumber = peg.number
             // Try to locate a match
@@ -62,11 +66,13 @@ struct PegsView: View {
             isTrailingEnd:
                 stateManager.availableNumbers[stateManager.availableNumbers.count - 1] == number
         )
-        .frame(height: 85)
+        .frame(width: 85, height: 95)
+        .scaledToFill()
     }
 }
 
 #Preview {
+//    @Previewable var stateManager = GameStateManager(numbers: [1,2,3,4])
     @Previewable var stateManager = GameStateManager()
     PegsView(stateManager: stateManager)
 }

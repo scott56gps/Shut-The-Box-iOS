@@ -25,12 +25,11 @@ struct PegView: View {
                 )
                     .stroke(Color.black, lineWidth: 2)
                     .fill(peg.color)
-                    .aspectRatio(1.0, contentMode: .fill)
             )
             .scaleEffect(scale)
     }
 }
 
 #Preview {
-    PegView(peg: Peg(1), scale: 1.0, isLeadingEnd: true, isTrailingEnd: false)
+    PegView(peg: Peg(1, color: .blue), scale: 1.0, isLeadingEnd: true, isTrailingEnd: false)
 }
