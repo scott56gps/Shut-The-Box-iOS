@@ -18,19 +18,11 @@
 			remoteGlobalIDString = D2A166F42DBAF90600D0C96A;
 			remoteInfo = "Shut The Box";
 		};
-		D2A1670D2DBAF91400D0C96A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D2A166ED2DBAF90600D0C96A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D2A166F42DBAF90600D0C96A;
-			remoteInfo = "Shut The Box";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D2A166F52DBAF90600D0C96A /* Shut The Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shut The Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A167022DBAF91400D0C96A /* Shut The BoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shut The BoxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2A1670C2DBAF91400D0C96A /* Shut The BoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shut The BoxUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EAF4722DC039FD006AD39A /* README.org */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.org; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,11 +35,6 @@
 		D2A167052DBAF91400D0C96A /* Shut The BoxTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Shut The BoxTests";
-			sourceTree = "<group>";
-		};
-		D2A1670F2DBAF91400D0C96A /* Shut The BoxUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Shut The BoxUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -67,13 +54,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2A167092DBAF91400D0C96A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,7 +63,6 @@
 				D2EAF4722DC039FD006AD39A /* README.org */,
 				D2A166F72DBAF90600D0C96A /* Shut The Box */,
 				D2A167052DBAF91400D0C96A /* Shut The BoxTests */,
-				D2A1670F2DBAF91400D0C96A /* Shut The BoxUITests */,
 				D2A166F62DBAF90600D0C96A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,7 +72,6 @@
 			children = (
 				D2A166F52DBAF90600D0C96A /* Shut The Box.app */,
 				D2A167022DBAF91400D0C96A /* Shut The BoxTests.xctest */,
-				D2A1670C2DBAF91400D0C96A /* Shut The BoxUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,29 +124,6 @@
 			productReference = D2A167022DBAF91400D0C96A /* Shut The BoxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D2A1670B2DBAF91400D0C96A /* Shut The BoxUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D2A1671C2DBAF91400D0C96A /* Build configuration list for PBXNativeTarget "Shut The BoxUITests" */;
-			buildPhases = (
-				D2A167082DBAF91400D0C96A /* Sources */,
-				D2A167092DBAF91400D0C96A /* Frameworks */,
-				D2A1670A2DBAF91400D0C96A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D2A1670E2DBAF91400D0C96A /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				D2A1670F2DBAF91400D0C96A /* Shut The BoxUITests */,
-			);
-			name = "Shut The BoxUITests";
-			packageProductDependencies = (
-			);
-			productName = "Shut The BoxUITests";
-			productReference = D2A1670C2DBAF91400D0C96A /* Shut The BoxUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -183,10 +138,6 @@
 						CreatedOnToolsVersion = 16.3;
 					};
 					D2A167012DBAF91400D0C96A = {
-						CreatedOnToolsVersion = 16.3;
-						TestTargetID = D2A166F42DBAF90600D0C96A;
-					};
-					D2A1670B2DBAF91400D0C96A = {
 						CreatedOnToolsVersion = 16.3;
 						TestTargetID = D2A166F42DBAF90600D0C96A;
 					};
@@ -208,7 +159,6 @@
 			targets = (
 				D2A166F42DBAF90600D0C96A /* Shut The Box */,
 				D2A167012DBAF91400D0C96A /* Shut The BoxTests */,
-				D2A1670B2DBAF91400D0C96A /* Shut The BoxUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -223,13 +173,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D2A167002DBAF91400D0C96A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2A1670A2DBAF91400D0C96A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,13 +196,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D2A167082DBAF91400D0C96A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -267,11 +203,6 @@
 			isa = PBXTargetDependency;
 			target = D2A166F42DBAF90600D0C96A /* Shut The Box */;
 			targetProxy = D2A167032DBAF91400D0C96A /* PBXContainerItemProxy */;
-		};
-		D2A1670E2DBAF91400D0C96A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D2A166F42DBAF90600D0C96A /* Shut The Box */;
-			targetProxy = D2A1670D2DBAF91400D0C96A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -493,42 +424,6 @@
 			};
 			name = Release;
 		};
-		D2A1671D2DBAF91400D0C96A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5Y5WLA6579;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "scott.Shut-The-BoxUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Shut The Box";
-			};
-			name = Debug;
-		};
-		D2A1671E2DBAF91400D0C96A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5Y5WLA6579;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "scott.Shut-The-BoxUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Shut The Box";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -555,15 +450,6 @@
 			buildConfigurations = (
 				D2A1671A2DBAF91400D0C96A /* Debug */,
 				D2A1671B2DBAF91400D0C96A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D2A1671C2DBAF91400D0C96A /* Build configuration list for PBXNativeTarget "Shut The BoxUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D2A1671D2DBAF91400D0C96A /* Debug */,
-				D2A1671E2DBAF91400D0C96A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
