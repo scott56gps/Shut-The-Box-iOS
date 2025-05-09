@@ -124,6 +124,26 @@
 			productReference = D2A167022DBAF91400D0C96A /* Shut The BoxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D2A1670B2DBAF91400D0C96A /* Shut The BoxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2A1671C2DBAF91400D0C96A /* Build configuration list for PBXNativeTarget "Shut The BoxUITests" */;
+			buildPhases = (
+				D2A167082DBAF91400D0C96A /* Sources */,
+				D2A167092DBAF91400D0C96A /* Frameworks */,
+				D2A1670A2DBAF91400D0C96A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2A1670E2DBAF91400D0C96A /* PBXTargetDependency */,
+			);
+			name = "Shut The BoxUITests";
+			packageProductDependencies = (
+			);
+			productName = "Shut The BoxUITests";
+			productReference = D2A1670C2DBAF91400D0C96A /* Shut The BoxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
