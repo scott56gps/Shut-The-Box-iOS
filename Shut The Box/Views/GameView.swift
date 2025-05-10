@@ -30,7 +30,8 @@ struct GameView: View {
                     RollView(stateManager: stateManager)
                     Spacer()
                 }
-            }    
+            }
+            .background(Color(red: 0.64, green: 0.64, blue: 1))
         }
     }
 }
