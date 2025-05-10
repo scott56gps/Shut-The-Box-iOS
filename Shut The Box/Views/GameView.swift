@@ -19,17 +19,18 @@ struct GameView: View {
                 Text("Score: \(stateManager.availableNumbers.reduce(0, +))")
                 PegsView(stateManager: stateManager)
                 Spacer()
-                HStack {
-                    Button() {
-                        stateManager.reset()
-                    } label: {
-                        Text("Reset")
-                            .font(.title)
-                    }
-                    Spacer()
-                    RollView(stateManager: stateManager)
-                    Spacer()
-                }
+                RollView(stateManager: stateManager)
+
+//                HStack {
+//                    Button() {
+//                        stateManager.reset()
+//                    } label: {
+//                        Text("Reset")
+//                            .font(.title)
+//                    }
+//                    Spacer()
+                    //                    Spacer()
+//                }
             }
             .background(Color(red: 0.64, green: 0.64, blue: 1))
         }

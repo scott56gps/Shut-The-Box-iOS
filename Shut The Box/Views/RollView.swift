@@ -11,24 +11,26 @@ struct RollView: View {
     var stateManager: GameStateManager
     
     var body: some View {
-        HStack {
-            if let roll = (stateManager.roll) {
+        if let roll = (stateManager.roll) {
+            HStack {
                 constructDie(pips: roll.firstDie)
                 constructDie(pips: roll.secondDie)
-            } else {
-                Button(action: {
-                    stateManager.rollDice()
-                }) {
-                    Text("Roll!")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundStyle(Color.black)
-                        .padding(12)
-                        .buttonStyle(.borderedProminent)
-                }
             }
+            .frame(maxWidth: .infinity, maxHeight: 60)
         }
-        .frame(width: 130, height: 80)
+        else {
+            Button(action: {
+                stateManager.rollDice()
+            }) {
+                Text("Roll!")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundStyle(Color.black)
+                    .padding([.top, .bottom], 12)
+                    .frame(maxWidth: .infinity, maxHeight: 60)
+            }
+            .buttonStyle(.borderedProminent)
+        }
     }
     
     func constructDie(pips: Int) -> some View {
