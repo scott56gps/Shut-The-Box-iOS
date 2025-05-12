@@ -12,12 +12,11 @@ struct ScoreView: View {
     
     var body: some View {
         Text("Score: \(stateManager.availableNumbers.reduce(0, +))")
-            .foregroundStyle(Color.white)
+            .foregroundStyle(.black)
             .font(.title2)
             .fontWeight(.bold)
             .padding(12)
             .background(.blue, in: RoundedRectangle(cornerRadius: 12))
-
     }
 }
 
