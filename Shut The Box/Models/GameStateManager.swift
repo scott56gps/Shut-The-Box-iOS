@@ -14,6 +14,7 @@ class GameStateManager {
     var pegMatches: Set<Peg>?
     var isGameOverAndBoxShut: (Bool, Bool) = (false, false)
     let masterColors = [Color.red, Color.blue, Color.green, Color.yellow, Color.orange, Color.purple, Color.pink, Color.mint, Color.indigo, Color.teal]
+    
     init(numbers: [Int]) {
         self.availableNumbers = numbers
     }
