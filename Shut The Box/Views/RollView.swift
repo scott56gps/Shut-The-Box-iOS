@@ -29,7 +29,7 @@ struct RollView: View {
                     .padding([.top, .bottom], 12)
                     .frame(maxWidth: .infinity, maxHeight: 60)
             }
-            .buttonStyle(.borderedProminent)
+            .background(.blue, in: RoundedRectangle(cornerRadius: 12))
         }
     }
     
