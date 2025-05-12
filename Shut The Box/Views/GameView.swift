@@ -16,7 +16,7 @@ struct GameView: View {
         } else {
             VStack {
                 Spacer()
-                Text("Score: \(stateManager.availableNumbers.reduce(0, +))")
+                ScoreView(stateManager: stateManager)
                 PegsView(stateManager: stateManager)
                 Spacer()
                 RollView(stateManager: stateManager)
