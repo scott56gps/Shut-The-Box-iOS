@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RollView: View {
-    var stateManager: GameStateManager
+    let stateManager: GameStateManager
     
     var body: some View {
         if let roll = (stateManager.roll) {

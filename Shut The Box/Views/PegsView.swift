@@ -10,7 +10,7 @@ import SwiftUI
 struct PegsView: View {
     @State private var touchedPegNumber: Int?
     @State private var matchedPegNumber: Int?
-    var stateManager: GameStateManager
+    let stateManager: GameStateManager
     let scaleAmount = 1.5
 
     var body: some View {
