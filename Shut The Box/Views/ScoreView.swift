@@ -16,7 +16,7 @@ struct ScoreView: View {
             .font(.title2)
             .fontWeight(.bold)
             .padding(12)
-            .background(.black, in: RoundedRectangle(cornerRadius: 12))
+            .background(.blue, in: RoundedRectangle(cornerRadius: 12))
 
     }
 }

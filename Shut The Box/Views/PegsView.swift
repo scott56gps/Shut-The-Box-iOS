@@ -10,7 +10,7 @@ import SwiftUI
 struct PegsView: View {
     @State private var touchedPegNumber: Int?
     @State private var matchedPegNumber: Int?
-    var stateManager: GameStateManager
+    let stateManager: GameStateManager
     let initialScale = 1.0
     let scaleAmount = 1.5
     let initialZIndex = 0.0
@@ -30,7 +30,7 @@ struct PegsView: View {
         }
         .scaledToFill()
     }
-    
+
     func createMatchedPegView(peg: Peg) -> some View {
         let isScaled = touchedPegNumber == peg.number || matchedPegNumber == peg.number
         return PegView(
@@ -57,12 +57,12 @@ struct PegsView: View {
                 guard !inProgress else { return }
                 stateManager.removeMatch((touchedNumber, matchedPegNumber ?? roll.total - touchedNumber))
             }
-            
+
             self.touchedPegNumber = inProgress ? touchedPegNumber : nil
             self.matchedPegNumber = inProgress ? matchedPegNumber : nil
         }
     }
-    
+
     func createUnmatchedPegView(number: Int) -> some View {
         PegView(
             peg: .init(number),

@@ -20,17 +20,6 @@ struct GameView: View {
                 PegsView(stateManager: stateManager)
                 Spacer()
                 RollView(stateManager: stateManager)
-
-//                HStack {
-//                    Button() {
-//                        stateManager.reset()
-//                    } label: {
-//                        Text("Reset")
-//                            .font(.title)
-//                    }
-//                    Spacer()
-                    //                    Spacer()
-//                }
             }
             .background(Color(red: 0.64, green: 0.64, blue: 1))
         }
