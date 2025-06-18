@@ -9,6 +9,7 @@ import SwiftUI
 struct PegView: View {
     var peg: Peg
     let scale: Double
+    let zIndex: Double
     let isLeadingEnd: Bool
     let isTrailingEnd: Bool
     
@@ -27,9 +28,10 @@ struct PegView: View {
                     .fill(peg.color)
             )
             .scaleEffect(scale)
+            .zIndex(zIndex)
     }
 }
 
 #Preview {
-    PegView(peg: Peg(1, color: .blue), scale: 1.0, isLeadingEnd: true, isTrailingEnd: false)
+    PegView(peg: Peg(1, color: .blue), scale: 1.0, zIndex: 0.0, isLeadingEnd: true, isTrailingEnd: false)
 }

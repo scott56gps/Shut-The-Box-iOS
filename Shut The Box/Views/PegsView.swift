@@ -11,7 +11,10 @@ struct PegsView: View {
     @State private var touchedPegNumber: Int?
     @State private var matchedPegNumber: Int?
     var stateManager: GameStateManager
+    let initialScale = 1.0
     let scaleAmount = 1.5
+    let initialZIndex = 0.0
+    let scaledZIndex = 1.0
 
     var body: some View {
         HStack(spacing: 0) {
@@ -29,9 +32,11 @@ struct PegsView: View {
     }
     
     func createMatchedPegView(peg: Peg) -> some View {
-        PegView(
+        let isScaled = touchedPegNumber == peg.number || matchedPegNumber == peg.number
+        return PegView(
             peg: peg,
-            scale: touchedPegNumber == peg.number || matchedPegNumber == peg.number ? scaleAmount : 1.0,
+            scale: isScaled ? scaleAmount : initialScale,
+            zIndex: isScaled ? scaledZIndex : initialZIndex,
             isLeadingEnd: stateManager.availableNumbers[0] == peg.number,
             isTrailingEnd:
                 stateManager.availableNumbers[stateManager.availableNumbers.count - 1] == peg.number
@@ -61,7 +66,8 @@ struct PegsView: View {
     func createUnmatchedPegView(number: Int) -> some View {
         PegView(
             peg: .init(number),
-            scale: 1.0,
+            scale: initialScale,
+            zIndex: initialZIndex,
             isLeadingEnd: stateManager.availableNumbers[0] == number,
             isTrailingEnd:
                 stateManager.availableNumbers[stateManager.availableNumbers.count - 1] == number
