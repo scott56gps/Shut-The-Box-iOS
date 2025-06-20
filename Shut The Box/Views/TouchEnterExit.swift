@@ -40,7 +40,7 @@ struct TouchEnterExit: ViewModifier {
                 onExit?()
             }
         }
-        return Color.clear
+        return Color.clear // We simply return a clear color view to make this view modifier 'invisible'
     }
 }
 
