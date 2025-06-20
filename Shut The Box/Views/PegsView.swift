@@ -43,7 +43,7 @@ struct PegsView: View {
             )
         .frame(width: 85, height: 95)
         .scaledToFill()
-        .onLongPressGesture(minimumDuration: 0.0) {
+        .touchEnterExit {
             touchedPegNumber = peg.number
             // Try to locate a match
             if let total = stateManager.roll?.total {
@@ -52,6 +52,12 @@ struct PegsView: View {
                     matchedPegNumber = matchedPeg.number
                 }
             }
+        } onExit: {
+            self.touchedPegNumber = nil
+            self.matchedPegNumber = nil
+        }
+        .onLongPressGesture() {
+            
         } onPressingChanged: { inProgress in
             if let roll = stateManager.roll, let touchedNumber = touchedPegNumber {
                 guard !inProgress else { return }
