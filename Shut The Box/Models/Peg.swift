@@ -4,7 +4,7 @@
 //
 //  Created by Scott Nicholes on 4/29/25.
 //
-import SwiftUICore
+import SwiftUI
 
 struct Peg: Equatable, Hashable {
     var number: Int
